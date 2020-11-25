@@ -1,0 +1,15 @@
+language: ruby
+rbenv:
+- 2.5.3
+addons:
+  postgresql: 9.6
+script:
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: "DaKE0KEoc8ZM6s9+9VGvJmxq4ppZGb/vEy0o215O8JjHBURvICyhq1KzQZgxhVQMYhZgIqW67el57a0ZkeKCJ7v4mj5rgvjum3KsunbkVA23fTVHb6QSklc87iZFIbYJElsonVqHluD9Xeb4XCfFn5PHNTKfqNC9vpI0C10rdkrQb/uNSOhH1T3LbjUPVRBIn3u1jx9dyrshso8rQmQJwZcRvcSyX2KkR1rZ9Qigi6uGJEcHFAdnwS1KhIhKlVAz4kZWhrPG5MPCkQkG6ixBxvOr4ozl67bjo7LRFsRucPyBU01KbZ2nsfcmUO5UMwF0kCuyBSSjwd02Te3I2/daSwZTgKQEJ2KZ3/PRF12oKlwaXPvn+dtUlWo7djN+DpMZnKTmPmHtRgRRoD+Bh8O5eQs20FwtFE4lzruGBtBIYSFqt55cck4StK0QTX6yaJbU3KLqCuc7MJpU7nP15hemaxHKvClvebKbFc2YMEkfFZDXB4odosOMAFYU9qZ2Eg3xwnB7MfbfviAFb5hokihlP+LphsPWxw74mb+S2k+U7Ybrzb3kecJ8DQVZacvmWCe/izZFoio2/u2QlY6vKgM7MBRmxKFaIrwcaZY2WEpLWaeQq63IKUeUohu9+fzU9YoM1tP1EzTlFG7kdcKordCP2pVD2B5OpvpNV46fqL11GwI="
+  app: nearest-fuel-station
+  on:
+    repo: coreycartercodes/nearest-fuel-station
